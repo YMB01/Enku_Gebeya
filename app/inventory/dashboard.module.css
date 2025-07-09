@@ -1,0 +1,166 @@
+.dashContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+.dashMainHeader {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.dashError {
+  color: #1a1a1a;
+  background: #fff5f0;
+  border-left: 4px solid #ff6200;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.dashSummaryCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dashCard {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.dashCard:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashCard h4 {
+  font-size: 13px;
+  color: #ff6200;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.dashCardValue {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.dashSection {
+  margin-bottom: 24px;
+}
+
+.dashSectionHeader {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.dashInventoryTable, .dashLowStockTable {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dashInventoryTableHeader, .dashLowStockTableHeader {
+  display: grid;
+  background: #ff6200;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 12px;
+}
+
+.dashInventoryTableHeader {
+  grid-template-columns: 2fr repeat(auto-fit, 1fr) 1fr;
+}
+
+.dashLowStockTableHeader {
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+.dashInventoryTableHeader div, .dashLowStockTableHeader div {
+  text-align: left;
+  padding: 0 8px;
+}
+
+.dashInventoryTableRow, .dashLowStockTableRow {
+  display: grid;
+  padding: 10px 12px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.dashInventoryTableRow:hover, .dashLowStockTableRow:hover {
+  background: #fff5f0;
+}
+
+.dashInventoryTableRow {
+  grid-template-columns: 2fr repeat(auto-fit, 1fr) 1fr;
+}
+
+.dashLowStockTableRow {
+  grid-template-columns: 2fr 2fr 1fr;
+}
+
+.dashInventoryTableRow div, .dashLowStockTableRow div {
+  text-align: left;
+  padding: 0 8px;
+}
+
+.dashInventoryTotalCell {
+  font-weight: 600;
+  color: #ff6200;
+}
+
+.dashLowStockQuantity {
+  font-weight: 500;
+  color: #ff6200;
+}
+
+@media (max-width: 600px) {
+  .dashContainer {
+    padding: 15px;
+  }
+
+  .dashMainHeader {
+    font-size: 20px;
+  }
+
+  .dashSectionHeader {
+    font-size: 16px;
+  }
+
+  .dashSummaryCards {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .dashCardValue {
+    font-size: 18px;
+  }
+
+  .dashInventoryTableHeader, .dashInventoryTableRow {
+    grid-template-columns: 1.5fr repeat(auto-fit, minmax(60px, 1fr)) 1fr;
+    font-size: 13px;
+  }
+
+  .dashLowStockTableHeader, .dashLowStockTableRow {
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    font-size: 13px;
+  }
+}

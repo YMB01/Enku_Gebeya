@@ -1,0 +1,26 @@
+.form {
+  background: var(--white-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--black-text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.error {
+  color: var(--black-text);
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}

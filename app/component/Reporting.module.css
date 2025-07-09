@@ -1,0 +1,503 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px;
+  background: linear-gradient(135deg, #F8FAFC 0%, #E5E7EB 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1F2937;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1F2937;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filterCard {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.filterRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9CA3AF;
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.inputGroup:hover .inputIcon {
+  transform: translateY(-50%) scale(1.2);
+  color: #3B82F6;
+}
+
+.dateInput {
+  width: 100%;
+  padding: 10px 10px 10px 32px;
+  border: 1px solid #D1D5DB;
+Altitude: 8px;
+  font-size: 14px;
+  color: #1F2937;
+  background: rgba(255, 255, 255, 0.95);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dateInput:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.dateInput::placeholder {
+  color: #9CA3AF;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.dateInput:focus::placeholder {
+  opacity: 0.6;
+}
+
+.exportButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  background: linear-gradient(90deg, #3B82F6, #2563EB);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  width: 100%;
+}
+
+.exportButton:hover {
+  background: linear-gradient(90deg, #2563EB, #1D4ED8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.exportButton:active {
+  transform: translateY(0);
+}
+
+.reportContent {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  border-radius: 12px;
+  min-height: 600px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summaryCard {
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.summaryCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #3B82F6, #A78BFA);
+  border-radius: 14px;
+  z-index: -1;
+}
+
+.summaryCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4B5563;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.cardValue {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.textGreen {
+  color: #34D399;
+}
+
+.textRed {
+  color: #F87171;
+}
+
+.textBlue {
+  color: #3B82F6;
+}
+
+.sectionCard {
+  background: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.sectionCard:hover {
+  transform: translateY(-2px);
+}
+
+.sectionHeading {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1F2937;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid #E5E7EB;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.sectionHeading:hover {
+  color: #3B82F6;
+}
+
+.icon {
+  color: #3B82F6;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.sectionHeading:hover .icon {
+  transform: rotate(15deg);
+}
+
+.chartGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.chartContainer {
+  background: #FFFFFF;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.chartContainer:hover {
+  transform: scale(1.02);
+}
+
+.chartContainer canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dataTable {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 8px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dataTable th,
+.dataTable td {
+  border: 1px solid #E5E7EB;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+
+.dataTable th {
+  background: linear-gradient(to bottom, #F1F5F9, #E5E7EB);
+  color: #1F2937;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.dataTable tbody tr:nth-child(odd) {
+  background: #F9FAFB;
+}
+
+.dataTable tbody tr:hover {
+  background: #E5E7EB;
+  transform: translateX(2px);
+}
+
+.textRight {
+  text-align: right;
+}
+
+.noData {
+  text-align: center;
+  color: #6B7280;
+  font-style: italic;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.loadingText {
+  text-align: center;
+  font-size: 16px;
+  color: #3B82F6;
+  padding: 24px;
+  animation: pulse 1.5s infinite;
+}
+
+.errorText {
+  text-align: center;
+  font-size: 16px;
+  color: #F87171;
+  padding: 24px;
+}
+
+.retryButton {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: linear-gradient(90deg, #3B82F6, #2563EB);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.retryButton:hover {
+  background: linear-gradient(90deg, #2563EB, #1D4ED8);
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Responsive Styles */
+@media (min-width: 640px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .filterCard {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .filterRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .inputGroup {
+    flex: 1;
+    min-width: 160px;
+  }
+
+  .dateInput {
+    font-size: 14px;
+    padding: 10px 10px 10px 32px;
+  }
+
+  .exportButton {
+    width: auto;
+    padding: 10px 20px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .summaryCard {
+    padding: 16px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .cardValue {
+    font-size: 24px;
+  }
+
+  .sectionCard {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .sectionHeading {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+
+  .chartContainer {
+    padding: 12px;
+    height: 300px;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .dataTable th {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .filterRow {
+    flex-wrap: nowrap;
+  }
+
+  .inputGroup {
+    flex: 0 1 auto;
+    max-width: 200px;
+  }
+
+  .chartGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chartContainer:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .filterCard {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .summaryCard {
+    padding: 24px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .cardValue {
+    font-size: 28px;
+  }
+
+  .sectionCard {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .sectionHeading {
+    font-size: 24px;
+  }
+
+  .chartContainer {
+    padding: 16px;
+    height: 350px;
+  }
+
+  .dataTable th,
+  .dataTable td {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .dataTable th {
+    font-size: 13px;
+  }
+
+  .inputGroup {
+    max-width: 240px;
+  }
+}

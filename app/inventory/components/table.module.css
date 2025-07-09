@@ -1,0 +1,233 @@
+.table {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 20px;
+  background: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--white-accent);
+  animation: fadeIn 0.5s ease-in;
+  overflow-x: auto;
+}
+
+.table.warehouse {
+  grid-template-columns: 1fr 2fr 2fr 2fr; /* ID, Name, Location, Actions */
+}
+
+.table.products {
+  grid-template-columns: 1fr 2fr 1.5fr 3fr 1.5fr 1.5fr 1.5fr 2fr; /* ID, Name, SKU, Description, Price, Qty, Photo, Actions */
+}
+
+.table.transactions {
+  grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 2fr 1.5fr 2fr; /* ID, Product ID, Warehouse ID, Quantity, Type, Remarks, Date, Actions */
+}
+
+.table.inventory {
+  grid-template-columns: 2fr repeat(auto-fill, minmax(120px, 1fr)) 1fr; /* Product, Warehouses..., Total */
+  display: grid; /* Ensure grid layout is explicitly set */
+}
+
+.table.lowStock {
+  grid-template-columns: 2fr 2fr 1fr; /* Product Name, Warehouse, Quantity */
+  display: grid; /* Ensure grid layout is explicitly set */
+}
+
+.table div {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 98, 0, 0.1);
+  border-right: 1px solid rgba(255, 98, 0, 0.05);
+  color: var(--black-text);
+  font-size: 0.95rem;
+}
+
+.table .header,
+.table .invInventoryTableHeader,
+.table .invLowStockTableHeader {
+  background: var(--primary-orange);
+  color: var(--black-text);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table .row,
+.table .invInventoryTableRow,
+.table .invLowStockTableRow {
+  display: contents;
+}
+
+.table .row:nth-child(even) div,
+.table .invInventoryTableRow:nth-child(even) div,
+.table .invLowStockTableRow:nth-child(even) div {
+  background: var(--light-bg);
+}
+
+.table .row:hover div,
+.table .invInventoryTableRow:hover div,
+.table .invLowStockTableRow:hover div {
+  background: rgba(255, 98, 0, 0.05);
+}
+
+.table button {
+  background: var(--primary-orange);
+  color: var(--white-bg);
+  border: none;
+  padding: 8px 12px;
+  margin-right: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.table button:hover {
+  background: var(--dark-orange);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 98, 0, 0.2);
+}
+
+.table button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.chartContainer {
+  background: var(--white-bg);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--white-accent);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.chartContainer h3 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  color: var(--black-text);
+}
+
+.error {
+  color: var(--black-text);
+  font-size: 0.9rem;
+  background: var(--white-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-orange);
+}
+
+.invContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  color: var(--black-text);
+  background: var(--white-bg);
+}
+
+.invMainHeader {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--black-text);
+  text-align: center;
+}
+
+.invSummaryCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.invCard {
+  background: var(--white-bg);
+  border: 1px solid var(--white-accent);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.invCard:hover {
+  box-shadow: 0 4px 8px rgba(255, 98, 0, 0.2);
+}
+
+.invCard h4 {
+  font-size: 13px;
+  color: var(--primary-orange);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.invCardValue {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--black-text);
+}
+
+.invSection {
+  margin-bottom: 24px;
+}
+
+.invSectionHeader {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black-text);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.invInventoryTotalCell,
+.invLowStockQuantity {
+  font-weight: 600;
+  color: var(--primary-orange);
+}
+
+@media (max-width: 800px) {
+  .table.warehouse,
+  .table.products,
+  .table.transactions {
+    grid-template-columns: 1fr;
+    font-size: 0.9rem;
+  }
+  .table.inventory {
+    grid-template-columns: minmax(150px, 2fr) repeat(auto-fill, minmax(100px, 1fr)) minmax(100px, 1fr); /* Maintain structure for inventory */
+  }
+  .table.lowStock {
+    grid-template-columns: minmax(150px, 2fr) minmax(150px, 2fr) minmax(100px, 1fr); /* Maintain structure for lowStock */
+  }
+  .table div {
+    border-right: none;
+    padding: 10px;
+  }
+  .table .header,
+  .table .invInventoryTableHeader,
+  .table .invLowStockTableHeader {
+    position: static;
+  }
+  .invContainer {
+    padding: 15px;
+  }
+  .invMainHeader {
+    font-size: 20px;
+  }
+  .invSectionHeader {
+    font-size: 16px;
+  }
+  .invSummaryCards {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .invCardValue {
+    font-size: 18px;
+  }
+}

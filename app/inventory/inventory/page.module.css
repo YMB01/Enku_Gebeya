@@ -1,0 +1,12 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 20px 0;
+  }
+  
+  .error {
+    color: #ff4444;
+    font-size: 12px;
+  }
