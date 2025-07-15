@@ -157,14 +157,17 @@ const ProductCard: React.FC<{ product: Product; openProductModal: (product: Prod
 
 // Product Detail Modal Component
 const ProductDetailModal: React.FC<{ product: Product; onClose: () => void }> = ({ product, onClose }) => (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm p-4 animate-fade-in">
-    <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full p-8 relative animate-scale-in flex flex-col md:flex-row gap-8">
+  <div
+    className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 `}
+    style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0,0,0,0.2)' }}
+  >
+    <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full p-12 relative animate-scale-in flex flex-col md:flex-row gap-12">
       <button
         onClick={onClose}
         className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200"
         aria-label="Close product details"
       >
-        <XCircle size={32} />
+        <XCircle size={30} />
       </button>
 
       <div className="w-full md:w-1/2 flex-shrink-0">

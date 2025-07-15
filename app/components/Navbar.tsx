@@ -124,7 +124,9 @@ export default function Navbar() {
 
       {/* Login Modal */}
       {isLoginModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 "
+        style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0,0,0,0.2)' }}
+        >
           <LoginModal onClose={closeLoginModal} />
         </div>
       )}
