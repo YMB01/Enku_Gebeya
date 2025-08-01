@@ -36,7 +36,7 @@ interface State {
   error: string | null;
 }
 
-const API_BASE_URL = 'http://localhost:34393/api/CashFlow';
+const API_BASE_URL = 'http://localhost:7251/api/CashFlow';
 
 const CashFlowForm: React.FC = () => {
   const [state, setState] = useState<State>({

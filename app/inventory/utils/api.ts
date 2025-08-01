@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { UpdateInventoryRequest, CreateProductRequest, UpdateProductRequest, CreateWarehouseRequest, UpdateWarehouseRequest } from '../types';
 
-const API_BASE_URL = 'https://localhost:44300/api/stockmanagement';
+const API_BASE_URL = 'http://localhost:7251/api/stockmanagement';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

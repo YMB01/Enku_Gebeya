@@ -23,20 +23,27 @@ export default function Products() {
   const [editId, setEditId] = useState<number | null>(null);
   const [error, setError] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const productData = await getProducts();
-        const warehouseData = await getWarehouses();
         setProducts(productData);
-        setWarehouses(warehouseData);
+        setWarehouses(await getWarehouses());
       } catch (err) {
         setError('Failed to fetch products or warehouses');
       }
     };
     fetchData();
   }, []);
+
+  // Utility function to clean base64 string (remove data URI prefix if present)
+  const cleanBase64 = (base64: string | null | undefined): string | null => {
+    if (!base64) return null;
+    // Remove data URI prefix if present (e.g., "data:image/png;base64,")
+    return base64.replace(/^data:image\/[a-z]+;base64,/, '');
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -78,6 +85,7 @@ export default function Products() {
       } else {
         await createProduct(formData);
         toast.success('Product created successfully');
+        setShowPopup(false);
       }
       setFormData({ ProductName: '', SKU: '', Description: '', UnitPrice: 0, QTY: 0, WarehouseID: undefined, Photo: '' });
       const productData = await getProducts();
@@ -101,6 +109,7 @@ export default function Products() {
       WarehouseID: product.WarehouseID,
       Photo: product.Photo || '',
     });
+    setShowPopup(true); // Show the popup for editing
   };
 
   const handleDelete = async (productId: number) => {
@@ -120,62 +129,11 @@ export default function Products() {
   return (
     <div className={styles.container}>
       <h2>Manage Products</h2>
-      <div className={styles.formWrapper}>
-        {error && <p className={styles.error}>{error}</p>}
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <FormInput label="Product Name" type="text" name="ProductName" value={formData.ProductName} onChange={handleInputChange} required />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput label="SKU" type="text" name="SKU" value={formData.SKU} onChange={handleInputChange} required />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput label="Unit Price" type="number" name="UnitPrice" value={formData.UnitPrice} onChange={handleInputChange} required />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput label="Quantity" type="number" name="QTY" value={formData.QTY} onChange={handleInputChange} required />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput
-              label="Warehouse"
-              type="select"
-              name="WarehouseID"
-              value={formData.WarehouseID || ''}
-              onChange={handleInputChange}
-              options={warehouses.map((w) => ({ value: w.WarehouseID, label: w.WarehouseName }))}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput label="Description" type="textarea" name="Description" value={formData.Description} onChange={handleInputChange} />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="Photo" className={styles.photoLabel}>Photo</label>
-            <input
-              type="file"
-              id="Photo"
-              name="Photo"
-              accept="image/*"
-              onChange={handlePhotoChange}
-              className={styles.fileInput}
-            />
-            {/* <button
-              type="button"
-              className={styles.uploadButton}
-              onClick={() => document.getElementById('Photo')?.click()}
-            >
-              Upload Photo
-            </button> */}
-            
-            {formData.Photo && (
-              <img src={`data:image/png;base64,${formData.Photo}`} alt="Preview" className={styles.photoPreview} />
-            )}
-          </div>
-          <div className={styles.formGroup}>
-            <button type="submit">{editId ? 'Update Product' : 'Create Product'}</button>
-          </div>
-        </form>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
+        <button onClick={() => setShowPopup(true)} className={styles.addButton}>
+          Add New
+        </button>
       </div>
-      <h3>Product List</h3>
       <div className={`${tableStyles.table} ${tableStyles.products}`}>
         <div className={tableStyles.header}>ID</div>
         <div className={tableStyles.header}>Name</div>
@@ -196,18 +154,21 @@ export default function Products() {
             <div>
               {product.Photo ? (
                 <img
-                  src={`data:image/png;base64,${product.Photo}`}
+                  src={`data:image/jpeg;base64,${cleanBase64(product.Photo)}`}
                   alt={product.ProductName}
                   style={{ maxWidth: '50px', maxHeight: '50px', cursor: 'pointer' }}
-                  onClick={() => setSelectedImage(product.Photo)}
+                  onClick={() => setSelectedImage(cleanBase64(product.Photo))}
+                  onError={() => console.error('Failed to load image for product:', product.ProductID)}
                 />
               ) : (
                 'No Photo'
               )}
             </div>
             <div>
+              <div style={{ display: 'flex', gap: '10px' }}>
               <button onClick={() => handleEdit(product)}>Edit</button>
               <button onClick={() => handleDelete(product.ProductID)}>Delete</button>
+            </div>
             </div>
           </div>
         ))}
@@ -229,10 +190,95 @@ export default function Products() {
           onClick={() => setSelectedImage(null)}
         >
           <img
-            src={`data:image/png;base64,${selectedImage}`}
+            src={`data:image/jpeg;base64,${cleanBase64(selectedImage)}`}
             alt="Full-size preview"
             style={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: '8px' }}
+            onError={() => console.error('Failed to load full-size image')}
           />
+        </div>
+      )}
+      {showPopup && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setShowPopup(false);
+          }}
+        >
+          <div
+            style={{
+              background: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+              width: '90%',
+              maxWidth: '700px',
+              maxHeight: '80vh',
+              overflowY: 'auto',
+            }}
+          >
+            <h3>{editId ? 'Edit Product' : 'Add New Product'}</h3>
+            {error && <p className={styles.error}>{error}</p>}
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.formGroup}>
+                <FormInput label="Product Name" type="text" name="ProductName" value={formData.ProductName} onChange={handleInputChange} required />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput label="SKU" type="text" name="SKU" value={formData.SKU} onChange={handleInputChange} required />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput label="Unit Price" type="number" name="UnitPrice" value={formData.UnitPrice} onChange={handleInputChange} required />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput label="Quantity" type="number" name="QTY" value={formData.QTY} onChange={handleInputChange} required />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput
+                  label="Warehouse"
+                  type="select"
+                  name="WarehouseID"
+                  value={formData.WarehouseID || ''}
+                  onChange={handleInputChange}
+                  options={warehouses.map((w) => ({ value: w.WarehouseID, label: w.WarehouseName }))}
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput label="Description" type="textarea" name="Description" value={formData.Description} onChange={handleInputChange} />
+              </div>
+              <div className={styles.formGroup}>
+                <label htmlFor="Photo" className={styles.photoLabel}>Photo</label>
+                <input
+                  type="file"
+                  id="Photo"
+                  name="Photo"
+                  accept="image/*"
+                  onChange={handlePhotoChange}
+                  className={styles.fileInput}
+                />
+                {formData.Photo && (
+                  <img
+                    src={`data:image/jpeg;base64,${cleanBase64(formData.Photo)}`}
+                    alt="Preview"
+                    className={styles.photoPreview}
+                    onError={() => console.error('Failed to load image preview')}
+                  />
+                )}
+              </div>
+              <div className={styles.formGroup}>
+                <button type="submit">{editId ? 'Update Product' : 'Create Product'}</button>
+                <button type="button" onClick={() => setShowPopup(false)}>Cancel</button>
+              </div>
+            </form>
+          </div>
         </div>
       )}
     </div>

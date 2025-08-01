@@ -104,7 +104,7 @@ export default class Reporting extends Component<{}, State> {
     this.setState({ loading: true, error: null });
     try {
       const [incomeRes, expensesRes, salesRes] = await Promise.all([
-        fetch('http://localhost:34393/api/Income'),
+        fetch('http://localhost:7251/api/Income'),
         fetch('http://localhost:34393/api/Expenses'),
         fetch('http://localhost:34393/api/Sales'),
       ]);

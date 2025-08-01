@@ -35,7 +35,7 @@ export function Navbar() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
               <path d="M4 4h16v16H4z" />
             </svg>
-            <span>Warehouses</span>
+            <span>Stocks</span>
           </Link>
         </li>
         <li>

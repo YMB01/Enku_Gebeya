@@ -2,22 +2,25 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #bedbf5; /* Matches second file */
+  color: #333333; /* Matches second file */
+  border-radius: 10px; /* Matches second file */
 }
 
 .formWrapper {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05); /* Matches second file */
   backdrop-filter: blur(8px);
   border-radius: 12px;
   padding: 25px;
   margin-bottom: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Matches second file */
+  border: 1px solid rgba(224, 224, 224, 0.5); /* Matches second file */
   animation: fadeIn 0.5s ease-in;
 }
 
 .form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Retained from first file */
   gap: 20px;
   max-width: 100%;
 }
@@ -28,48 +31,93 @@
 }
 
 .formGroup textarea {
-  grid-column: span 2; /* Description spans wider */
+  grid-column: span 2; /* Retained from first file */
 }
 
 .formGroup button {
-  grid-column: 1 / -1; /* Button spans all columns */
-  background: linear-gradient(90deg, #ff6200, #ff8c00);
-  border: 2px solid #ffffff;
-  padding: 12px;
-  border-radius: 8px;
-  color: #1a1a1a;
-  font-weight: 700;
+  grid-column: 1 / -1; /* Matches second file */
+  background-color: #4CAF50; /* Matches second file's green */
+  border: none; /* Matches second file */
+  padding: 10px 20px; /* Matches second file */
+  border-radius: 25px; /* Matches second file */
+  color: #FFFFFF; /* Matches second file */
+  font-size: 16px; /* Matches second file */
+  font-weight: 700; /* Matches second file */
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Matches second file */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Matches second file */
 }
 
 .formGroup button:hover {
-  background: #e55a00;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(255, 98, 0, 0.3);
+  background-color: #45a049; /* Matches second file */
+  transform: translateY(-2px); /* Matches second file */
 }
 
 .formGroup button:active {
-  transform: translateY(0);
+  transform: translateY(0); /* Matches second file */
 }
 
 .error {
   grid-column: 1 / -1;
-  color: #ff4444;
+  color: #D32F2F; /* Matches second file */
   font-size: 0.9rem;
-  background: rgba(255, 68, 68, 0.1);
+  background: rgba(244, 67, 54, 0.1); /* Matches second file */
   padding: 8px 12px;
   border-radius: 6px;
-  border-left: 4px solid #ff4444;
+  border-left: 4px solid #f44336; /* Matches second file */
   animation: fadeIn 0.3s ease;
+}
+
+.addButton {
+  background-color: #4CAF50; /* Matches second file */
+  border: none; /* Matches second file */
+  padding: 10px 20px; /* Matches second file */
+  border-radius: 25px; /* Matches second file */
+  color: #FFFFFF; /* Matches second file */
+  font-size: 16px; /* Matches second file */
+  font-weight: 700; /* Matches second file */
+  cursor: pointer; /* Matches second file */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Matches second file */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Matches second file */
+  margin-bottom: 20px; /* Matches second file */
+}
+
+.addButton:hover {
+  background-color: #45a049; /* Matches second file */
+  transform: translateY(-2px); /* Matches second file */
+}
+
+.photoLabel {
+  margin-bottom: 5px; /* Matches second file */
+  font-weight: 500; /* Matches second file */
+  color: #333333; /* Matches second file */
+}
+
+.fileInput {
+  margin-bottom: 10px; /* Matches second file */
+  padding: 8px; /* Matches second file */
+  border: 1px solid #c0c0c0; /* Matches second file */
+  border-radius: 8px; /* Matches second file */
+}
+
+.photoPreview {
+  max-width: 100px; /* Matches second file */
+  max-height: 100px; /* Matches second file */
+  border-radius: 5px; /* Matches second file */
+  margin-top: 10px; /* Matches second file */
+}
+
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Matches second file */
+  backdrop-filter: blur(8px); /* Matches second file */
 }
 
 @media (max-width: 600px) {
   .form {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Matches second file */
   }
   .formGroup textarea {
-    grid-column: span 1;
+    grid-column: span 1; /* Retained from first file */
   }
 }
 

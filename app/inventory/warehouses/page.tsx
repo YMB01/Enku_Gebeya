@@ -12,6 +12,7 @@ export default function Warehouses() {
   const [warehouses, setWarehouses] = useState<Warehouse[]>([]);
   const [formData, setFormData] = useState<CreateWarehouseRequest>({ WarehouseName: '', Location: '' });
   const [editId, setEditId] = useState<number | null>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +41,7 @@ export default function Warehouses() {
       } else {
         await createWarehouse(formData);
         toast.success('Warehouse created successfully!');
+        setShowPopup(false);
       }
       setFormData({ WarehouseName: '', Location: '' });
       const warehouseData = await getWarehouses();
@@ -52,6 +54,7 @@ export default function Warehouses() {
   const handleEdit = (warehouse: Warehouse) => {
     setEditId(warehouse.WarehouseID);
     setFormData({ WarehouseName: warehouse.WarehouseName, Location: warehouse.Location || '' });
+    setShowPopup(true); // Show the popup for editing
   };
 
   const handleDelete = async (warehouseId: number) => {
@@ -68,24 +71,15 @@ export default function Warehouses() {
   return (
     <div className={styles.container}>
       <h2>Manage Warehouses</h2>
-      <div className={styles.formWrapper}>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <FormInput label="Warehouse Name" type="text" name="WarehouseName" value={formData.WarehouseName} onChange={handleInputChange} required />
-          </div>
-          <div className={styles.formGroup}>
-            <FormInput label="Location" type="text" name="Location" value={formData.Location} onChange={handleInputChange} />
-          </div>
-          <div className={styles.formGroup}>
-            <button type="submit">{editId ? 'Update Warehouse' : 'Create Warehouse'}</button>
-          </div>
-        </form>
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
+        <button onClick={() => setShowPopup(true)} className={styles.addButton}>
+          Add New
+        </button>
       </div>
-      <h3>Warehouse List</h3>
       <div className={`${tableStyles.table} ${tableStyles.warehouse}`}>
         <div className={tableStyles.header}>ID</div>
         <div className={tableStyles.header}>Name</div>
-        <div className={tableStyles.header}>Location</div>
+        <div className={tableStyles.header}>Description</div>
         <div className={tableStyles.header}>Actions</div>
         {warehouses.map((warehouse) => (
           <div key={warehouse.WarehouseID} className={tableStyles.row}>
@@ -99,6 +93,60 @@ export default function Warehouses() {
           </div>
         ))}
       </div>
+      {showPopup && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            background: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setShowPopup(false);
+          }}
+        >
+          <div
+            style={{
+              background: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+              width: '90%',
+              maxWidth: '700px',
+              maxHeight: '80vh',
+              overflowY: 'auto',
+            }}
+          >
+            <h3>{editId ? 'Edit Warehouse' : 'Add New Warehouse'}</h3>
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.formGroup}>
+                <FormInput label="stock Name" type="text" name="WarehouseName" value={formData.WarehouseName} onChange={handleInputChange} required />
+              </div>
+              <div className={styles.formGroup}>
+                <FormInput label="Description" type="text" name="Location" value={formData.Location} onChange={handleInputChange} />
+              </div>
+              <div className={styles.formGroup} style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+                <button type="submit" className={styles.btnPrimary} style={{ flex: '1', minWidth: '120px', fontSize: '16px' }}>
+                  {editId ? 'Update Warehouse' : 'Create Warehouse'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowPopup(false)}
+                  className={styles.btnPrimary}
+                  style={{ flex: '1', minWidth: '120px', fontSize: '16px', backgroundColor: '#757575', color: '#FFFFFF' }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

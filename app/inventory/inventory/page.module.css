@@ -1,12 +1,69 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #bedbf5;
+  color: #333333;
+  border-radius: 10px;
+  animation: fadeIn 0.6s ease-out; /* Retained from inline style */
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 20px 0;
-  }
-  
-  .error {
-    color: #ff4444;
-    font-size: 12px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Matches Warehouses */
+  gap: 20px;
+  max-width: 600px; /* Matches inline style */
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05); /* Matches Warehouses .formWrapper */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Matches Warehouses .formWrapper */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup textarea {
+  grid-column: span 2; /* Matches Warehouses for consistency */
+}
+
+.formGroup button.btnPrimary {
+  grid-column: 1 / -1;
+  background-color: #4CAF50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.formGroup button.btnPrimary:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.formGroup button.btnPrimary:active {
+  transform: translateY(0);
+}
+
+.error {
+  grid-column: 1 / -1;
+  color: #D32F2F;
+  font-size: 0.9rem;
+  background: rgba(244, 67, 54, 0.1);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 4px solid #f44336;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
