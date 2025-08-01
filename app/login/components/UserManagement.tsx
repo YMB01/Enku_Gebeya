@@ -226,8 +226,8 @@ const handleSaveEditUser = async (e: React.FormEvent) => {
 
       {/* Add User Popup */}
       {isAddUserOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <div className="fixed inset-0 bg-opacity-100 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-100">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Add New User</h2>
             <form onSubmit={handleCreateUser} className="space-y-4">
               <input
@@ -242,7 +242,7 @@ const handleSaveEditUser = async (e: React.FormEvent) => {
                 type="email"
                 value={newUser.email}
                 onChange={(e) => setLocalNewUser({ ...newUser, email: e.target.value })}
-                placeholder="Email"
+                // placeholder="Email"
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               />
@@ -250,7 +250,7 @@ const handleSaveEditUser = async (e: React.FormEvent) => {
                 type="password"
                 value={newUser.password}
                 onChange={(e) => setLocalNewUser({ ...newUser, password: e.target.value })}
-                placeholder="Password"
+                // placeholder="Password"
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               />
@@ -301,8 +301,8 @@ const handleSaveEditUser = async (e: React.FormEvent) => {
 
       {/* Edit User Popup */}
       {editUser && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-100">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Edit User</h2>
             <form onSubmit={handleSaveEditUser} className="space-y-4">
               <input
@@ -325,7 +325,7 @@ const handleSaveEditUser = async (e: React.FormEvent) => {
                 type="password"
                 value={editUser.password}
                 onChange={(e) => setLocalEditUser({ ...editUser, password: e.target.value })}
-                placeholder="New Password (optional)"
+                placeholder="New Password"
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
               <label className="flex items-center">
