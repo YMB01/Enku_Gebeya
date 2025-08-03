@@ -29,7 +29,7 @@ const SupplierForm: React.FC = () => {
   const [deleteId, setDeleteId] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const apiUrl = 'http://localhost:34393/api/Suppliers'; // Change as needed
+  const apiUrl = 'http://localhost:7251/api/Suppliers'; // Change as needed
 
   useEffect(() => {
     loadSuppliers();

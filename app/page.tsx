@@ -339,7 +339,7 @@ useEffect(() => {
         <div style={{ width: '100%', maxWidth: '64rem', margin: '0 auto', height: '24rem', boxShadow: '0 20px 25px rgba(0,0,0,0.1), 0 8px 10px rgba(0,0,0,0.04)', borderRadius: '1rem', overflow: 'hidden', border: '4px solid #FFA500' }}>
           <iframe
             title="Company Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.210459733075!2d144.9630576153163!3d-37.81627997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b260905e97%3A0x5045678462939d0!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1678854321000!5m2!1sen!2sau" // Example Google Maps embed URL
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3940.5297248347683!2d38.782554999999995!3d9.015346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMDAnNTUuMyJOIDM4wrA0Nic1Ny4yIkU!5e0!3m2!1sen!2set!4v1754220682767!5m2!1sen!2set"
             width="100%"
             height="100%"
             loading="lazy"
@@ -379,7 +379,7 @@ const ContactCard = () => {
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <Phone size={24} style={{ flexShrink: 0 }} />
-          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>123-456-7890</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>09-37-31-26-93</span>
         </div>
 
         {/* Location */}
@@ -388,7 +388,7 @@ const ContactCard = () => {
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <MapPin size={24} style={{ flexShrink: 0 }} />
-          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>123 Main St, Anytown</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>22 Tigat Shopping Center, 3rd Floor, F3-15, in front of Getahun Besha Building</span>
         </div>
 
         {/* Instagram */}
@@ -397,7 +397,7 @@ const ContactCard = () => {
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <Instagram size={24} style={{ flexShrink: 0 }} />
-          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>@your_instagram</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>@ENQUCREATIVES</span>
         </div>
 
         {/* TikTok - Using Globe icon as a generic web/social icon */}
@@ -406,7 +406,7 @@ const ContactCard = () => {
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <Globe size={24} style={{ flexShrink: 0 }} />
-          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>@your_tiktok</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>@ENQUCREATIVES</span>
         </div>
 
         {/* Facebook */}
@@ -415,7 +415,7 @@ const ContactCard = () => {
           onMouseOut={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; e.currentTarget.style.transform = 'scale(1)'; }}
         >
           <Facebook size={24} style={{ flexShrink: 0 }} />
-          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>/your_facebook</span>
+          <span style={{ fontSize: '1.125rem', fontWeight: '500' }}>/ENQUCREATIVES</span>
         </div>
 
         {/* Other */}

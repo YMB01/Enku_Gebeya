@@ -37,7 +37,7 @@ interface State {
   isLoading: boolean;
 }
 
-const API_BASE_URL = 'http://localhost:34393/api/Expenses';
+const API_BASE_URL = 'http://localhost:7251/api/Expenses';
 
 const ExpenseForm: React.FC = () => {
   const [state, setState] = useState<State>({

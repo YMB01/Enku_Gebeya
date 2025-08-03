@@ -40,7 +40,7 @@ interface State {
   isLoading: boolean;
 }
 
-const API_BASE_URL = 'http://localhost:34393/api/Sales';
+const API_BASE_URL = 'http://localhost:7251/api/Sales';
 
 const SalesForm: React.FC = () => {
   const [state, setState] = useState<State>({
