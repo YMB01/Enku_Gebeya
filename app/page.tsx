@@ -71,7 +71,7 @@ useEffect(() => {
           {/* Left Side - Welcome Message */}
           <div className="w-full md:w-1/2 p-6 sm:p-8 flex flex-col items-center justify-center text-center md:text-left z-10">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-              Welcome to <span className="text-[#FFA500]">Enku Gebeya</span>
+              <span className="text-gray-900"> Welcome to</span> <span className="text-[#FFA500]">Enku Gebeya</span>
             </h1>
             <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-700 max-w-md mx-auto md:mx-0">
               Discover a new era of marketplace excellence. Enku Gebeya is your trusted platform for quality and convenience.
@@ -368,7 +368,7 @@ const ContactCard = () => {
 
       {/* Contact Title */}
       <h2 style={{ fontSize: '2.25rem', fontWeight: '800', marginBottom: '2rem', textAlign: 'center', letterSpacing: '-0.025em', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-        Contact Us
+         <span className="text-[#FFFFFF]">Contact Us</span>
       </h2>
 
       {/* Contact Details Grid */}

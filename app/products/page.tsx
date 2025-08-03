@@ -110,7 +110,7 @@ const HeroSection: React.FC<{ product: Product; openProductModal: (product: Prod
     <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
       <div className="text-center md:text-left md:w-1/2">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
-          {product.name}
+           <span className="text-[#FFFFFF]">{product.name}</span>
         </h1>
         <p className="text-lg sm:text-xl lg:text-2xl mb-6 opacity-90 drop-shadow-md">
           {product.description.substring(0, 150)}...
@@ -239,18 +239,38 @@ export default function ProductPage() {
         <h2 className="text-4xl font-bold text-center mb-10 text-gray-900">Our Products</h2>
 
         {/* Search Input */}
-        <div className="max-w-xl mx-auto mb-12">
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="w-full p-4 border border-gray-300 rounded-full shadow-sm text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#FFA500] transition-all duration-300"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
-        </div>
+<div style={{ maxWidth: '36rem', margin: '0 auto 3rem' }}>
+  <input
+    type="text"
+    placeholder="Search products..."
+    style={{
+      width: '100%',
+      padding: '1rem',
+      border: '1px solid #ccc',
+      borderRadius: '9999px',
+      fontSize: '1.125rem',
+      color: '#4B5563',
+      outline: 'none',
+      transition: 'all 0.3s ease',
+    }}
+    onFocus={(e) => {
+      e.currentTarget.style.boxShadow = '0 0 0 2px #FFA500';
+    }}
+    onBlur={(e) => {
+      e.currentTarget.style.boxShadow = 'none';
+    }}
+    value={searchTerm}
+    onChange={(e) => {
+      setSearchTerm(e.target.value);
+      setCurrentPage(1);
+    }}
+  />
+</div>
+
+
+
+
+
 
         {/* Product Cards */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

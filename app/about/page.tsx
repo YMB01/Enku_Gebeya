@@ -143,7 +143,7 @@ export default function App() {
 
             <div style={{ position: 'relative', zIndex: 20, maxWidth: '64rem', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>
               <h1 style={{ fontSize: '2.25rem', lineHeight: '2.5rem', fontWeight: '800', marginBottom: '1rem', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                {slide.title}
+              <span className="text-[#FFFFFF]">{slide.title}</span>  
               </h1>
               <p style={{ fontSize: '1.25rem', lineHeight: '1.75rem', maxWidth: '48rem', margin: '0 auto 2rem', opacity: 0.9, textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                 {slide.description}
