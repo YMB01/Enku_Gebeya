@@ -2,16 +2,19 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #bedbf5; /* Matches earlier .container background */
+  color: #333333; /* Matches text color */
+  border-radius: 10px;
 }
 
 .formWrapper {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05); /* Subtle transparent white */
   backdrop-filter: blur(8px);
   border-radius: 12px;
   padding: 25px;
   margin-bottom: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Matches .cardShadow */
+  border: 1px solid rgba(224, 224, 224, 0.5); /* Lighter border */
   animation: fadeIn 0.5s ease-in;
 }
 
@@ -29,20 +32,21 @@
 
 .formGroup button {
   grid-column: 1 / -1; /* Button spans both columns */
-  background: linear-gradient(90deg, #ff6200, #ff8c00);
-  border: 2px solid #ffffff;
-  padding: 12px;
-  border-radius: 8px;
-  color: #1a1a1a;
+  background-color: #4CAF50; /* Matches .btnPrimary green */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #FFFFFF; /* White text */
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Matches .btnPrimary */
 }
 
 .formGroup button:hover {
-  background: #e55a00;
+  background-color: #45a049; /* Matches .btnPrimary hover */
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(255, 98, 0, 0.3);
 }
 
 .formGroup button:active {
@@ -51,13 +55,57 @@
 
 .error {
   grid-column: 1 / -1;
-  color: #ff4444;
+  color: #D32F2F; /* Matches .deleteBtn hover */
   font-size: 0.9rem;
-  background: rgba(255, 68, 68, 0.1);
+  background: rgba(244, 67, 54, 0.1); /* Light red */
   padding: 8px 12px;
   border-radius: 6px;
-  border-left: 4px solid #ff4444;
+  border-left: 4px solid #f44336; /* Matches .deleteBtn */
   animation: fadeIn 0.3s ease;
+}
+
+.addButton {
+  background-color: #4CAF50; /* Matches .btnPrimary green */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #FFFFFF; /* White text */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Matches .btnPrimary */
+  margin-bottom: 20px;
+}
+
+.addButton:hover {
+  background-color: #45a049; /* Matches .btnPrimary hover */
+  transform: translateY(-2px);
+}
+
+.photoLabel {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #333333; /* Matches .container text */
+}
+
+.fileInput {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #c0c0c0; /* Matches .modalContent inputs */
+  border-radius: 8px;
+}
+
+.photoPreview {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.6); /* Matches .modalOverlay */
+  backdrop-filter: blur(8px);
 }
 
 @media (max-width: 600px) {

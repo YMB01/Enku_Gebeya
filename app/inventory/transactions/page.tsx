@@ -6,6 +6,7 @@ import { Transaction, Product, Warehouse } from '../types';
 import { FormInput } from '../components/FormInput';
 import styles from './page.module.css';
 import tableStyles from '../components/table.module.css';
+import toast from 'react-hot-toast';
 
 export default function Transactions() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -36,6 +37,12 @@ export default function Transactions() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  }, [error]);
+
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     setFilters({ ...filters, [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value });
@@ -64,6 +71,7 @@ export default function Transactions() {
       const transactionData = await getTransactionHistory();
       setTransactions(transactionData);
       setError('');
+      toast.success('Transaction deleted successfully!');
     } catch (err: any) {
       setError(err.response?.data?.Error || 'Failed to delete transaction');
     }
@@ -73,7 +81,6 @@ export default function Transactions() {
     <div className={styles.container}>
       <h2>Transaction History</h2>
       <div className={styles.formWrapper}>
-        {error && <p className={styles.error}>{error}</p>}
         <form onSubmit={handleFilterSubmit} className={styles.form}>
           <div className={styles.formGroup}>
             <FormInput
@@ -112,7 +119,7 @@ export default function Transactions() {
           </div>
         </form>
       </div>
-      <h3>Transaction List</h3>
+      <h3>Transaction List</h3> 
       <div className={`${tableStyles.table} ${tableStyles.transactions}`}>
         <div className={tableStyles.header}>ID</div>
         <div className={tableStyles.header}>Product ID</div>
@@ -132,7 +139,7 @@ export default function Transactions() {
             <div>{transaction.Remarks}</div>
             <div>{new Date(transaction.TransactionDate).toLocaleDateString()}</div>
             <div>
-              <button onClick={() => handleDelete(transaction.TransactionID)}>Delete</button>
+              <button className={tableStyles.deleteButton} onClick={() => handleDelete(transaction.TransactionID)}>Delete</button>
             </div>
           </div>
         ))}

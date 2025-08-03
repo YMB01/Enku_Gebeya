@@ -3,10 +3,10 @@
   width: 100%;
   max-width: 100%;
   margin-top: 20px;
-  background: var(--white-bg);
+  background: #FFFFFF; /* Replaced var(--white-bg) with white */
   border-radius: 12px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--white-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Replaced var(--shadow) with .cardShadow style */
+  border: 1px solid #e0e0e0; /* Replaced var(--white-accent) with .tableContainer border */
   animation: fadeIn 0.5s ease-in;
   overflow-x: auto;
 }
@@ -36,17 +36,17 @@
 .table div {
   padding: 15px;
   text-align: left;
-  border-bottom: 1px solid rgba(255, 98, 0, 0.1);
-  border-right: 1px solid rgba(255, 98, 0, 0.05);
-  color: var(--black-text);
+  border-bottom: 1px solid rgba(33, 150, 243, 0.1); /* Replaced rgba(255, 98, 0, 0.1) with blue accent */
+  border-right: 1px solid rgba(33, 150, 243, 0.05); /* Replaced rgba(255, 98, 0, 0.05) with lighter blue */
+  color: #333333; /* Replaced var(--black-text) with .container text color */
   font-size: 0.95rem;
 }
 
 .table .header,
 .table .invInventoryTableHeader,
 .table .invLowStockTableHeader {
-  background: var(--primary-orange);
-  color: var(--black-text);
+  background: #E3F2FD; /* Replaced var(--primary-orange) with .tableContainer thead */
+  color: #1976D2; /* Replaced var(--black-text) with .tableContainer th color */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -64,18 +64,18 @@
 .table .row:nth-child(even) div,
 .table .invInventoryTableRow:nth-child(even) div,
 .table .invLowStockTableRow:nth-child(even) div {
-  background: var(--light-bg);
+  background: #F8F8F8; /* Replaced var(--light-bg) with .tableContainer tbody hover */
 }
 
 .table .row:hover div,
 .table .invInventoryTableRow:hover div,
 .table .invLowStockTableRow:hover div {
-  background: rgba(255, 98, 0, 0.05);
+  background: rgba(33, 150, 243, 0.05); /* Replaced rgba(255, 98, 0, 0.05) with blue hover */
 }
 
 .table button {
-  background: var(--primary-orange);
-  color: var(--white-bg);
+  background: #4CAF50; /* Replaced var(--primary-orange) with .btnPrimary */
+  color: #FFFFFF; /* Replaced var(--white-bg) with white */
   border: none;
   padding: 8px 12px;
   margin-right: 8px;
@@ -87,9 +87,9 @@
 }
 
 .table button:hover {
-  background: var(--dark-orange);
+  background: #45a049; /* Replaced var(--dark-orange) with .btnPrimary hover */
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(255, 98, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2); /* Replaced rgba(255, 98, 0, 0.2) with green shadow */
 }
 
 .table button:active {
@@ -98,28 +98,28 @@
 }
 
 .chartContainer {
-  background: var(--white-bg);
+  background: #FFFFFF; /* Replaced var(--white-bg) with white */
   border-radius: 12px;
   padding: 30px;
   margin-top: 20px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--white-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Replaced var(--shadow) with .cardShadow */
+  border: 1px solid #e0e0e0; /* Replaced var(--white-accent) with .tableContainer border */
   animation: fadeIn 0.5s ease-in;
 }
 
 .chartContainer h3 {
   margin-bottom: 20px;
   font-size: 1.4rem;
-  color: var(--black-text);
+  color: #333333; /* Replaced var(--black-text) with .container text */
 }
 
 .error {
-  color: var(--black-text);
+  color: #333333; /* Replaced var(--black-text) with .container text */
   font-size: 0.9rem;
-  background: var(--white-bg);
+  background: #FFFFFF; /* Replaced var(--white-bg) with white */
   padding: 8px 12px;
   border-radius: 6px;
-  border-left: 4px solid var(--primary-orange);
+  border-left: 4px solid #f44336; /* Replaced var(--primary-orange) with .deleteBtn color */
 }
 
 .invContainer {
@@ -128,15 +128,15 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Inter', sans-serif;
-  color: var(--black-text);
-  background: var(--white-bg);
+  color: #333333; /* Replaced var(--black-text) with .container text */
+  background: #FFFFFF; /* Replaced var(--white-bg) with white */
 }
 
 .invMainHeader {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: var(--black-text);
+  color: #333333; /* Replaced var(--black-text) with .container text */
   text-align: center;
 }
 
@@ -148,22 +148,22 @@
 }
 
 .invCard {
-  background: var(--white-bg);
-  border: 1px solid var(--white-accent);
+  background: #FFFFFF; /* Replaced var(--white-bg) with white */
+  border: 1px solid #e0e0e0; /* Replaced var(--white-accent) with .tableContainer border */
   border-radius: 8px;
   padding: 12px;
   text-align: center;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Replaced var(--shadow) with .cardShadow */
   transition: box-shadow 0.3s ease;
 }
 
 .invCard:hover {
-  box-shadow: 0 4px 8px rgba(255, 98, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.2); /* Replaced rgba(255, 98, 0, 0.2) with blue shadow */
 }
 
 .invCard h4 {
   font-size: 13px;
-  color: var(--primary-orange);
+  color: #1976D2; /* Replaced var(--primary-orange) with .tableContainer th */
   margin-bottom: 6px;
   font-weight: 500;
 }
@@ -171,7 +171,7 @@
 .invCardValue {
   font-size: 20px;
   font-weight: 600;
-  color: var(--black-text);
+  color: #333333; /* Replaced var(--black-text) with .container text */
 }
 
 .invSection {
@@ -181,7 +181,7 @@
 .invSectionHeader {
   font-size: 18px;
   font-weight: 500;
-  color: var(--black-text);
+  color: #333333; /* Replaced var(--black-text) with .container text */
   margin-bottom: 8px;
   text-align: center;
 }
@@ -189,7 +189,7 @@
 .invInventoryTotalCell,
 .invLowStockQuantity {
   font-weight: 600;
-  color: var(--primary-orange);
+  color: #1976D2; /* Replaced var(--primary-orange) with .tableContainer th */
 }
 
 @media (max-width: 800px) {
