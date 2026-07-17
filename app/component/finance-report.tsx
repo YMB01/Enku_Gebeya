@@ -1,3 +1,4 @@
+"use client";
 import React, { Component, ChangeEvent } from 'react';
 import { FaChartPie, FaChartBar, FaFilePdf, FaSearch } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
