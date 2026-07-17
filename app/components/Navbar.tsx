@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import LoginModal from '../login/login/page';
+import LoginModal from '../login/login/LoginModal';
 
 
 export default function Navbar() {
