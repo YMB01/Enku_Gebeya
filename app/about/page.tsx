@@ -74,6 +74,19 @@ export default function App() {
   // State for Testimonial Slider
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
+  // State for responsive design window width
+  const [windowWidth, setWindowWidth] = useState(1024);
+
+  useEffect(() => {
+    // Only access window on the client side
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Function to go to the next hero slide
   const goToNextHeroSlide = () => {
     setCurrentHeroSlideIndex((prevIndex) =>
@@ -301,10 +314,10 @@ export default function App() {
           maxWidth: '72rem',
           margin: '0 auto',
           display: 'flex',
-          flexDirection: window.innerWidth > 768 ? 'row' : 'column', // Desktop: row, Mobile: column
+          flexDirection: windowWidth > 768 ? 'row' : 'column', // Desktop: row, Mobile: column
           gap: '2rem',
           alignItems: 'stretch', // Ensures columns have equal height
-          height: window.innerWidth > 768 ? '25rem' : 'auto', // Fixed height for desktop, auto for mobile
+          height: windowWidth > 768 ? '25rem' : 'auto', // Fixed height for desktop, auto for mobile
         }}
       >
         {/* Left Column: Image Area / Name Display */}
@@ -321,7 +334,7 @@ export default function App() {
             justifyContent: 'center',
             padding: '2rem', // Add padding for internal content
             width: '100%', // Ensure it takes full width on mobile
-            maxHeight: window.innerWidth <= 768 ? '25rem' : 'auto', // Max height for image area on mobile
+            maxHeight: windowWidth <= 768 ? '25rem' : 'auto', // Max height for image area on mobile
           }}
         >
           <div
